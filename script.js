@@ -7,6 +7,7 @@ const PARTICLES_BATCH_SIZE = Math.PI * 2 * 12;
 
 let ocean;
 
+
 function setup() {
 	noCanvas();
 	ocean = new OceanRift_RenderPipeline(CANX, CANY);

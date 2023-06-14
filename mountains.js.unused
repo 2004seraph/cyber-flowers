@@ -1,0 +1,43 @@
+var CANX = 700
+var CANY = 700
+
+var cellArray = makeMatrix(CANX, CANY)
+for (var i = 0; i < 40; i++) {
+  cellArray[Math.floor(Math.random() * CANY)][Math.floor(Math.random() * CANX)] = 1
+}
+
+
+const gpu = new GPU()
+
+const render1 = gpu.createKernel(function(matrix) {
+    if (matrix[this.thread.y][this.thread.x] != 0) {
+      return this.thread.y
+    }
+    if (matrix[this.thread.y - 1][this.thread.x - 1] != 0 || matrix[this.thread.y - 1][this.thread.x + 1] != 0 || matrix[this.thread.y - 1][this.thread.x] != 0) {
+      return this.thread.y
+    } else {
+      return 0
+    }
+  }
+).setOutput([CANX, CANY])
+
+
+const render2 = gpu.createKernel(function(matrix) {
+  let cell = matrix[this.thread.y][this.thread.x]
+
+    if (cell != 0) {
+      this.color(cell/700, 1, 1, 1)
+    } else {
+      this.color(0, 0, 0, 1)
+    }
+  }
+).setOutput([CANX, CANY]).setGraphical(true)
+const renderCanvas = render2.canvas
+document.getElementsByTagName('body')[0].appendChild(renderCanvas)
+
+
+function draw() {
+  //background(0)
+  cellArray = render1(cellArray)
+  render2(cellArray)
+}

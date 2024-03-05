@@ -1,7 +1,6 @@
 import '/js/lib/p5.js';
 p5.disableFriendlyErrors = true;
 import { Matrix } from "/js/matrix.mjs";
-import "/js/lib/gpu.js";
 import { Snowflake } from "./snowflake.mjs";
 import { createGPUContext } from "/js/browser.mjs";
 

@@ -52,7 +52,7 @@ let p5Ctx = new p5((sketch) => {
     document.getElementsByTagName('body')[0].appendChild(renderCanvas);
 
 		
-		document.body.onclick = function(e) {
+	  document.body.onclick = function(e) {
 		  var rect = renderCanvas.getBoundingClientRect()
 		  var x = e.clientX - Math.floor(rect.left)
 		  var y = e.clientY - Math.floor(rect.top)
@@ -75,7 +75,7 @@ let p5Ctx = new p5((sketch) => {
   };
 
   sketch.draw = () => {
-    if (running && frameCount % 2 == 0) {
+    if (running && sketch.frameCount % 2 == 0) {
       cellArray = render1(cellArray)
     }
 

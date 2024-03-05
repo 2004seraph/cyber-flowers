@@ -1,6 +1,6 @@
 "use strict";
 
-import '/js/lib/p5.js';
+import '../../js/lib/p5.js';
 p5.disableFriendlyErrors = true;
 
 import { OceanRift_RenderPipeline } from "./ocean-rift-renderer.mjs";

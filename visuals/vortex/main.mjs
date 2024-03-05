@@ -1,8 +1,8 @@
-import '/js/lib/p5.js';
+import '../../js/lib/p5.js';
 p5.disableFriendlyErrors = true;
-import { Matrix } from "/js/matrix.mjs";
+import { Matrix } from "../../js/matrix.mjs";
 import { Snowflake } from "./snowflake.mjs";
-import { createGPUContext } from "/js/browser.mjs";
+import { createGPUContext } from "../../js/browser.mjs";
 
 
 let p5Ctx = new p5((sketch) => {

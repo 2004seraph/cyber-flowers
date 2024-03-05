@@ -1,7 +1,7 @@
 "use strict";
 
 import { Matrix } from "../../js/matrix.mjs";
-import { Snowflake } from "snowflake.mjs";
+import { Snowflake } from "./snowflake.mjs";
 import { createGPUContext } from "../../js/browser.mjs";
 
 export class OceanRift_RenderPipeline {

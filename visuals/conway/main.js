@@ -37,12 +37,13 @@ const render2 = gpu.createKernel(function(matrix) {
   }
 }).setOutput([CANX, CANY]).setGraphical(true)
 
-const renderCanvas = render2.canvas
-document.getElementsByTagName('body')[0].appendChild(renderCanvas)
-
+var renderCanvas
 
 function setup() {
 	noCanvas();
+	
+	renderCanvas = render2.canvas;
+	document.getElementsByTagName('body')[0].appendChild(renderCanvas);
 }
 
 function draw() {

@@ -1,6 +1,6 @@
 "use strict";
 
-import { Particle } from "/js/particle.mjs";
+import { Particle } from "../../js/particle.mjs";
 
 export class Snowflake extends Particle {
 
